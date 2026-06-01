@@ -1,0 +1,65 @@
+# Auto Job Scraper with Excel Export and Email Notifications
+
+A Python automation tool that searches Indeed's based on specific keywords and locations. It extracts
+structured job data using firecrawl, exports results to Excel, and sends email notifications. 
+
+
+## Features:
+- Dynamically builds search URLs from user-provided keywords and locations
+- Uses Pydantic schemas to guide the AI on how to format the extracted data
+- Extracts structured job information (title, company, description, salary, location)
+- Stores results in a formatted Excel workbook
+- Sends automated email summaries of newly collected listings
+
+
+
+## Built With:
+- Language: Python
+- Tools/Modules: Firecrawl, Pydantic, Openpyxl, SMTP, python-dotenv
+
+
+## Project Structure:
+project/
+│
+├── main.py
+├── emailer.py
+├── excel_export.py
+├── .env
+├── job_listings.xlsx
+├── README.md
+└── screenshots/
+    ├── Excel Editor Job Listings SC.png
+    ├── Job Listing Email.png
+    ├── Terminal Inputs.png
+    
+
+## How it runs:
+- Hit run and enter the job keyword and location
+- Open the job_listings.xlsx file to display the newly added job listing
+- Find the email notification of the data
+
+## Notes:
+- Set an environment to store the FIRECRAWL_API_KEY, EMAIL_ADDRESS, and EMAIL_TEMP_PWD
+- Your EMAIL_TEMP_PWD can be found by searching up google app passwords. Generate a temporary app password and name the device as 'server' (optionally)
+- Install an extension to open the Excel file such as Excel Viewer on VS Code.
+
+
+## Example Outputs:
+
+# Terminal Inputs:
+![Terminal Input Example](screenshots/Terminal_Inputs.png)
+
+
+# job_listings.xlsx:
+![Job Listings Excel File Example](screenshots/Excel_Editor_Job Listings_SC.png)
+
+
+# Job Listings Email Notification:
+![Email Notification Example](screenshots/Job_Listing_Email.png)
+
+
+## Challenges Faced:
+- Traditional BeautifulSoup scraping was unreliable because Indeed content is dynamically rendered and highly secure.
+- Investigated browser network requests using Chrome DevTools.
+- Evaluated multiple scraping approaches before choosing Firecrawl for structured extraction.
+- Expanded only one job description extraction by firecrawl using Pydantic models.
